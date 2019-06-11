@@ -1,5 +1,7 @@
 package viewController;
 
-public class TruthViewController {
+import heredity.DareTruthController;
+
+public class TruthViewController extends DareTruthController {
 
 }
