@@ -44,7 +44,7 @@ public class GameController {
 
 			} catch (Exception e) {
 				ShowError("Startfehler",
-						"Scheint als wäre beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
+						"Scheint als wï¿½re beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
 						e);
 				return;
 			}
@@ -63,7 +63,7 @@ public class GameController {
 					players.add(new Player(name));
 				}
 			} catch (Exception e) {
-				// ShowError();
+				 //ShowError();
 				return;
 			}
 
@@ -83,7 +83,7 @@ public class GameController {
 						selection = controller.show(player.getName());
 
 					} catch (Exception e) {
-						// ShowError();
+						 //ShowError();
 						return;
 					}
 
@@ -133,7 +133,7 @@ public class GameController {
 				newGame = controller.show(players);
 
 			} catch (Exception e) {
-				// ShowError();
+				 //ShowError();
 				return;
 			}
 
