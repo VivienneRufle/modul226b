@@ -11,8 +11,8 @@ public class RiskViewController implements GameCategoryController {
 int auswahl = 5;
 	
 	@FXML
-	private Button buttonRAufgabe;
-	private Button buttonRNo;
+	private Button buttonRAufgabe  = new Button();
+	private Button buttonRNo = new Button();
 	
 	public void actionPerformed (ActionEvent e){
 		if(e.getSource() == this.buttonRAufgabe){

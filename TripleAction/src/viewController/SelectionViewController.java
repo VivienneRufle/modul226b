@@ -11,9 +11,9 @@ public class SelectionViewController implements ActionListener{
 	int auswahl = 5;
 	
 	@FXML
-	private Button buttonDare;
-	private Button buttonTruth;
-	private Button buttonRisk;
+	private Button buttonDare = new Button();
+	private Button buttonTruth = new Button();
+	private Button buttonRisk = new Button();
 	
 	public void actionPerformed (ActionEvent e){
 		if(e.getSource() == this.buttonDare){
@@ -26,7 +26,6 @@ public class SelectionViewController implements ActionListener{
         	auswahl = 2;
         }
 	}
-	
 	
 	
 	public int show(String name) {

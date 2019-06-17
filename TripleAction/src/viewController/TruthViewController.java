@@ -11,10 +11,10 @@ public class TruthViewController extends DareTruthController {
 int auswahl = 5;
 	
 	@FXML
-	private Button buttonTAufgabe1;
-	private Button buttonTAufgabe2;
-	private Button buttonTAufgabe3;
-	private Button buttonTNo;
+	private Button buttonTAufgabe1 = new Button();
+	private Button buttonTAufgabe2 = new Button();
+	private Button buttonTAufgabe3 = new Button();
+	private Button buttonTNo = new Button();
 	
 	public void actionPerformed (ActionEvent e){
 		if(e.getSource() == this.buttonTAufgabe1){
