@@ -20,4 +20,9 @@ public class Player {
 	public void addPoints(int amount) {
 		points += amount;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 }
+

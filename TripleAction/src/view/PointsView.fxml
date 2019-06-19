@@ -53,10 +53,10 @@
             </Text>
          </children>
       </VBox>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TableView fx:id="points" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
         <columns>
-          <TableColumn prefWidth="250.0" text="Spieler" />
-          <TableColumn prefWidth="125.0" text="Punkte" />
+          <TableColumn fx:id="pointsPlayer" prefWidth="250.0" text="Spieler" />
+          <TableColumn fx:id="pointsPoints" prefWidth="125.0" text="Punkte" />
         </columns>
       </TableView>
    </children>
