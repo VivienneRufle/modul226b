@@ -44,7 +44,7 @@ public class GameController {
 
 			} catch (Exception e) {
 				ShowError("Startfehler",
-						"Scheint als w�re beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
+						"Scheint als wäre beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
 						e);
 				return;
 			}
