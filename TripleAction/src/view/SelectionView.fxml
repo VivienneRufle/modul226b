@@ -6,11 +6,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SelectionViewController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewController.SelectionViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="50.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="300.0" />
@@ -21,30 +20,9 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tat, Wahrheit, Risiko">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Circle fill="#d10d10" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#ffa41f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#2cda05" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler X hat die Wahl." textAlignment="CENTER" wrappingWidth="359.23779296875">
                <font>
@@ -53,9 +31,18 @@
             </Text>
          </children>
       </HBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="buttonDare" mnemonicParsing="false" onAction="#dare" prefHeight="50.0" prefWidth="350.0" text="Tat" textAlignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="buttonDare" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" text="Tat" textAlignment="CENTER">
+            <Button fx:id="buttonTruth" mnemonicParsing="false" onAction="#truth" prefHeight="50.0" prefWidth="350.0" text="Wahrheit" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -64,16 +51,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-            <Button fx:id="buttonTruth" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" text="Wahrheit" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <Button fx:id="buttonRisk" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" text="Risiko" textAlignment="CENTER">
+            <Button fx:id="buttonRisk" mnemonicParsing="false" onAction="#risk" prefHeight="50.0" prefWidth="350.0" text="Risiko" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>

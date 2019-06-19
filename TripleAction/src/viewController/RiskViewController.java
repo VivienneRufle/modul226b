@@ -1,31 +1,27 @@
 package viewController;
 
-import java.awt.Button;
-import java.awt.event.ActionEvent;
-
 import heredity.GameCategoryController;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class RiskViewController implements GameCategoryController {
-
-int auswahl = 5;
 	
 	@FXML
-	private Button buttonRAufgabe  = new Button();
-	private Button buttonRNo = new Button();
-	
-	public void actionPerformed (ActionEvent e){
-		if(e.getSource() == this.buttonRAufgabe){
-        	auswahl = 0;
-        }
-        else if (e.getSource() == this.buttonRNo) {
-        	auswahl = 1;
-        }
-	}
+	private Button buttonRAufgabe;
+	private Button buttonRNo;
 	
 	public int show(String playerName) {
-		// TODO Auto-generated method stub
+		((Stage) buttonRAufgabe.getScene().getWindow()).showAndWait();
 		return 0;
+	}
+	
+	public void task() {
+		((Stage) buttonRAufgabe.getScene().getWindow()).close();
+	}
+	
+	public void noTask() {
+		((Stage) buttonRAufgabe.getScene().getWindow()).close();
 	}
 
 }
