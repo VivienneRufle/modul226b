@@ -33,6 +33,7 @@ public class GameController {
 			String[] playerNames;
 
 			try {
+				Stage stage = new Stage();
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PlayerAmountView.fxml"));
 				Parent root = loader.load();
 
@@ -145,6 +146,7 @@ public class GameController {
 	}
 
 	private void ShowError(String title, String message, Exception e) {
+		e.printStackTrace();
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setHeaderText(null);
