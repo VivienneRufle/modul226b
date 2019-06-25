@@ -10,7 +10,9 @@ public class SelectionViewController{
 	
 	@FXML
 	private Button buttonDare;
+	@FXML
 	private Button buttonTruth;
+	@FXML
 	private Button buttonRisk;
 
 	

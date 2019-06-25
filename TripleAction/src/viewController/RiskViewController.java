@@ -9,6 +9,7 @@ public class RiskViewController implements GameCategoryController {
 	
 	@FXML
 	private Button buttonRAufgabe;
+	@FXML
 	private Button buttonRNo;
 	
 	public int show(String playerName) {

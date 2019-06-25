@@ -13,8 +13,11 @@ int auswahl = 5;
 	
 	@FXML
 	private Button buttonTAufgabe1;
+	@FXML
 	private Button buttonTAufgabe2;
+	@FXML
 	private Button buttonTAufgabe3;
+	@FXML
 	private Button buttonTNo;
 	
 	public void task() {
