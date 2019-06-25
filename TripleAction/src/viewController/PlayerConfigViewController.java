@@ -1,8 +1,9 @@
 package viewController;
 
+import java.util.ArrayList;
+
 import application.Player;
 import application.PlayerListCell;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ public class PlayerConfigViewController {
 	private ListView<Player> playersName;
 	
 	private ObservableList<Player> list;
+	ArrayList<Player> players = null;
 	
 	public void initialize() {
 		list = FXCollections.observableArrayList();
@@ -27,7 +29,7 @@ public class PlayerConfigViewController {
 		playersName.setCellFactory(lv -> new PlayerListCell());
 	}
 	
-	public Player[] show(int playerAmount) {
+	public ArrayList<Player> show(int playerAmount) {
 		
 		for(int i = 1; i <= playerAmount; i++) {
 			String name = "Spieler "+i;
@@ -35,12 +37,12 @@ public class PlayerConfigViewController {
 		}
 		
 		((Stage) buttonGameStart.getScene().getWindow()).showAndWait();
-		Player[] players = (Player[]) list.toArray();
 		
 		return players;
 	}
 	
 	public void gameStart() {
+		players = new ArrayList<Player>(list);
 		((Stage) buttonGameStart.getScene().getWindow()).close();
 	}
 

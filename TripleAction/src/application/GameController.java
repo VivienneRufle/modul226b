@@ -1,6 +1,9 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import heredity.GameCategoryController;
 import javafx.fxml.FXMLLoader;
@@ -19,21 +22,20 @@ public class GameController {
 	private Stage stage;
 
 	public GameController(Stage stage) {
-		this.stage = stage;
+		// this.stage = stage;
 	}
 
 	public void play() {
 
 		boolean newGame;
-		
+
 		do {
 
 			int[] amount;
-			ArrayList<Player> players = new ArrayList<Player>();
-			String[] playerNames;
+			ArrayList<Player> players;
 
 			try {
-				Stage stage = new Stage();
+				stage = new Stage();
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PlayerAmountView.fxml"));
 				Parent root = loader.load();
 
@@ -41,11 +43,16 @@ public class GameController {
 
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
+				stage.setTitle("TripleAction - Grundkofiguration ");
 				amount = controller.show();
+
+				if (amount[0] == 0) {
+					return;
+				}
 
 			} catch (Exception e) {
 				ShowError("Startfehler",
-						"Scheint als wÃ¤re beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
+						"Scheint als wäre beim Starten des Programms ein Fehler aufgetreten :(\nBitte starte es neu.",
 						e);
 				return;
 			}
@@ -58,13 +65,16 @@ public class GameController {
 
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
-				playerNames = controller.show(amount[0]);
+				stage.setTitle("TripleAction - Player konfigurieren");
+				players = controller.show(amount[0]);
 
-				for (String name : playerNames) {
-					players.add(new Player(name));
+				if (players == null) {
+					return;
 				}
+
 			} catch (Exception e) {
-				 //ShowError();
+				ShowError("Fehler", "Fehler beim öffnen der View.\nBitte starte das Programm neu.", e);
+				e.printStackTrace();
 				return;
 			}
 
@@ -81,10 +91,15 @@ public class GameController {
 
 						Scene scene = new Scene(root);
 						stage.setScene(scene);
+						stage.setTitle("TripleAction - Auswahl Runde " + (i+1));
 						selection = controller.show(player.getName());
 
+						if (selection == -1) {
+							return;
+						}
+
 					} catch (Exception e) {
-						 //ShowError();
+						ShowError("Fehler", "Fehler beim öffnen der View.\nBitte starte das Programm neu.", e);
 						return;
 					}
 
@@ -107,16 +122,20 @@ public class GameController {
 							break;
 						}
 
-						controller = loader.getController();
-
 						Parent root = loader.load();
+
+						controller = loader.getController();
 
 						Scene scene = new Scene(root);
 						stage.setScene(scene);
 						points = controller.show(player.getName());
 
+						if (points == -1) {
+							return;
+						}
+
 					} catch (Exception e) {
-						// ShowError();
+						ShowError("Fehler", "Fehler beim öffnen der View.\nBitte starte das Programm neu.", e);
 						return;
 					}
 
@@ -124,6 +143,18 @@ public class GameController {
 				}
 			}
 			try {
+				
+				List<Player> data = players;
+				
+				Collections.sort(data, new Comparator<Player>() {
+					 @Override
+				        public int compare(Player p1, Player p2)
+				        {
+
+				            return  p2.getPoints() - p1.getPoints();
+				        }
+				});
+				
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PointsView.fxml"));
 				Parent root = loader.load();
 
@@ -131,10 +162,13 @@ public class GameController {
 
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
-				newGame = controller.show(players);
+				stage.setTitle("TripleAction - Punkteübersicht");
+				newGame = controller.show(data);
 
 			} catch (Exception e) {
-				 //ShowError();
+				ShowError("Fehler Punkteübersicht",
+						"Danke, dass du dieses Spiel gespielt hast.\nLeider ist beim Anzeigen der Punkte ein Fehler aufgetreten.\nStarte das Programm doch einfach nochmals und spiele noch ein paar Runden :)",
+						e);
 				return;
 			}
 
@@ -142,17 +176,18 @@ public class GameController {
 	}
 
 	private void ShowError(String title, String message) {
-
-	}
-
-	private void ShowError(String title, String message, Exception e) {
-		e.printStackTrace();
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setHeaderText(null);
 		alert.setContentText(message);
 
 		alert.showAndWait();
+		return;
+	}
+
+	private void ShowError(String title, String message, Exception e) {
+		e.printStackTrace();
+		ShowError(title, message);
 		return;
 	}
 }

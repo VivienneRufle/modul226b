@@ -3,10 +3,10 @@ package viewController;
 import heredity.DareTruthController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 public class DareViewController extends DareTruthController {
-	
+
 	@FXML
 	private Button buttonDAufgabe1;
 	@FXML
@@ -14,14 +14,10 @@ public class DareViewController extends DareTruthController {
 	@FXML
 	private Button buttonDAufgabe3;
 	@FXML
-	private Button buttonDNo;
+	private Text textCaption;
 	
-	public void task() {
-		((Stage) buttonDAufgabe1.getScene().getWindow()).close();
-	}
-	
-	public void notask() {
-		((Stage) buttonDAufgabe1.getScene().getWindow()).close();
+	public void initialize() {
+		super.setVariables(true, buttonDAufgabe1, buttonDAufgabe2, buttonDAufgabe3, textCaption);
 	}
 	
 }

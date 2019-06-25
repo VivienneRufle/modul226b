@@ -1,15 +1,11 @@
 package viewController;
 
-import java.awt.event.ActionEvent;
-
 import heredity.DareTruthController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 public class TruthViewController extends DareTruthController {
-
-int auswahl = 5;
 	
 	@FXML
 	private Button buttonTAufgabe1;
@@ -18,13 +14,9 @@ int auswahl = 5;
 	@FXML
 	private Button buttonTAufgabe3;
 	@FXML
-	private Button buttonTNo;
+	private Text textCaption;
 	
-	public void task() {
-		((Stage) buttonTAufgabe1.getScene().getWindow()).close();
-	}
-	
-	public void notask() {
-		((Stage) buttonTAufgabe1.getScene().getWindow()).close();
+	public void initialize() {
+		super.setVariables(false, buttonTAufgabe1, buttonTAufgabe2, buttonTAufgabe3, textCaption);
 	}
 }

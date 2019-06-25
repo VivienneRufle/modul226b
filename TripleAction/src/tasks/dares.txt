@@ -1,0 +1,13 @@
+Programmiere einen Button.
+Zeichne ein UML mit Beispiel Daten.
+Programmiere eine einfache Verzweigung (if/else).
+Programmiere eine while-Schleife.
+Programmiere eine for-Schleife.
+Programmiere einen Array.
+Programmiere ein Switch.
+Lege eine MySQL Datenbank an.
+Lege eine MySQL Datenbank an und füge dieser 3 Tabellen hinzu.
+Programmiere einen Taschenrechner mit GUI in Java.
+Zeichne ein ERM mit Beispiel Daten.
+Schreibe eine simple Rechnung mittels Stored-Procedure (SQL).
+Zeichne ein grundlegendes Schichtenmodell auf (Java).

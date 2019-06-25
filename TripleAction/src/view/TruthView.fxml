@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewController.TruhtViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewController.TruthViewController">
    <children>
       <GridPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <columnConstraints>
@@ -28,7 +28,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler X muss in der Spielkategorie Wahrheit eine der Folgenden Aufgaben lösen." textAlignment="CENTER" wrappingWidth="359.23779296875">
+                  <Text fx:id="textCaption" strokeType="OUTSIDE" strokeWidth="0.0" text="Spieler X muss in der Spielkategorie Wahrheit eine der Folgenden Aufgaben lösen." textAlignment="CENTER" wrappingWidth="359.23779296875">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -37,7 +37,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="buttonTAufgabe1" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 1" textAlignment="CENTER">
+                  <Button fx:id="buttonTAufgabe1" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 1" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -46,7 +46,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="buttonTAufgabe2" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 2" textAlignment="CENTER">
+                  <Button fx:id="buttonTAufgabe2" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 2" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -55,7 +55,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="buttonTAufgabe3" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 3" textAlignment="CENTER">
+                  <Button fx:id="buttonTAufgabe3" mnemonicParsing="false" onAction="#task" prefHeight="50.0" prefWidth="350.0" text="Aufgabe 3" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>

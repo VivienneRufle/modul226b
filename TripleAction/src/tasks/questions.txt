@@ -1,0 +1,23 @@
+Was ist eine “Klasse” in Java?
+Was ist ein “Objekt” in Java?
+Was ist ein “Stack” in Java?
+Was ist ein “Heap” in Java?
+Was ist ein “Array” in Java?
+Was ist eine “ArrayList<T>” in Java?
+Was ist ein UML in Java?
+Was ist “Agiles Testing” in Java?
+Wie wird “Kapselung” definiert (Java)?
+Wie wird “Information Hiding” definiert (Java)?
+Erkläre den Begriff “Delegation” (Java).
+Für was wird “JavaDoc” in Java verwendet?
+Wie ist ein “Sequenzdiagramm” aufgebaut und für was ist dieses nützlich (Java)?
+Was ist eine “Fachklasse” in Java?
+Was ist eine Methode in Java?
+Wie wird eine Methode aufgerufen in Java?
+Welche vier Datenbankmodelle gibt es?
+Was ist Mongo DB?
+Was bedeutet ACID und was ist das (Datenbank)?
+Wie wird ein USER in MySQL angelegt?
+Was ist eine IP Adresse?
+Was ist eine MAC Adresse?
+Mit welchem Schweizer Fussballverein fiebert Herr Kopp mit?
