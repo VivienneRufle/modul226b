@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,7 +20,7 @@ import viewController.SelectionViewController;
 
 public class GameController {
 
-	private Stage stage;
+	private Stage stage = new Stage();;
 
 	public GameController(Stage stage) {
 		// this.stage = stage;
@@ -35,15 +36,8 @@ public class GameController {
 			ArrayList<Player> players;
 
 			try {
-				stage = new Stage();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PlayerAmountView.fxml"));
-				Parent root = loader.load();
-
-				PlayerAmountViewController controller = loader.getController();
-
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
-				stage.setTitle("TripleAction - Grundkofiguration ");
+				
+				PlayerAmountViewController controller = generateLoader("/view/PlayerAmountView.fxml", "TripleAction - Grundkofiguration").getController();
 				amount = controller.show();
 
 				if (amount[0] == 0) {
@@ -58,14 +52,7 @@ public class GameController {
 			}
 
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PlayerConfigView.fxml"));
-				Parent root = loader.load();
-
-				PlayerConfigViewController controller = loader.getController();
-
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
-				stage.setTitle("TripleAction - Player konfigurieren");
+				PlayerConfigViewController controller = generateLoader("/view/PlayerConfigView.fxml", "TripleAction - Player konfigurieren").getController();
 				players = controller.show(amount[0]);
 
 				if (players == null) {
@@ -84,14 +71,7 @@ public class GameController {
 					int selection;
 
 					try {
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SelectionView.fxml"));
-						Parent root = loader.load();
-
-						SelectionViewController controller = loader.getController();
-
-						Scene scene = new Scene(root);
-						stage.setScene(scene);
-						stage.setTitle("TripleAction - Auswahl Runde " + (i+1));
+						SelectionViewController controller = generateLoader("/view/SelectionView.fxml", "TripleAction - Auswahl Runde " + (i+1)).getController();
 						selection = controller.show(player.getName());
 
 						if (selection == -1) {
@@ -154,15 +134,8 @@ public class GameController {
 				            return  p2.getPoints() - p1.getPoints();
 				        }
 				});
-				
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PointsView.fxml"));
-				Parent root = loader.load();
 
-				PointsViewController controller = loader.getController();
-
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
-				stage.setTitle("TripleAction - Punkteübersicht");
+				PointsViewController controller = generateLoader("/view/PointsView.fxml", "TripleAction - Punkteübersicht").getController();
 				newGame = controller.show(data);
 
 			} catch (Exception e) {
@@ -189,5 +162,16 @@ public class GameController {
 		e.printStackTrace();
 		ShowError(title, message);
 		return;
+	}
+	
+	private FXMLLoader generateLoader(String path, String title) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+		Parent root = loader.load();
+
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setTitle(title);
+		
+		return loader;
 	}
 }
