@@ -5,10 +5,17 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class SelectionViewController{
-	
+/**
+ * Controller für die Auswahl-View
+ * 
+ * @author Vivienne Rufle
+ * @version 1.0
+ *
+ */
+public class SelectionViewController {
+
 	int auswahl = -1;
-	
+
 	@FXML
 	private Button buttonDare;
 	@FXML
@@ -18,26 +25,50 @@ public class SelectionViewController{
 	@FXML
 	private Text textCaption;
 
-	
-	public int show(String name) {
-		textCaption.setText(name + " hat die Wahl:");
+	/**
+	 * Zeigt die View und legt die Anzeigeelemente fest
+	 * 
+	 * @param playerName Name des Spielers der an der Reihe ist
+	 * @return Die getätigte Auswahl
+	 */
+	public int show(String playerName) {
+		textCaption.setText(playerName + " hat die Wahl:");
 		((Stage) buttonDare.getScene().getWindow()).showAndWait();
 		return auswahl;
 	}
-	
+
+	/**
+	 * Methode wenn Tat geklickt wurde. Ruft die Close-Methode mit der Auswahlnummer
+	 * auf.
+	 */
 	public void dare() {
-		((Stage) buttonDare.getScene().getWindow()).close();
-		auswahl = 0;
+		close(0);
 	}
-	
+
+	/**
+	 * Methode wenn Wahrheit geklickt wurde. Ruft die Close-Methode mit der
+	 * Auswahlnummer auf.
+	 */
 	public void truth() {
-		((Stage) buttonDare.getScene().getWindow()).close();
-		auswahl = 1;
+		close(1);
 	}
-	
+
+	/**
+	 * Methode wenn Risiko geklickt wurde. Ruft die Close-Methode mit der
+	 * Auswahlnummer auf.
+	 */
 	public void risk() {
+		close(2);
+	}
+
+	/**
+	 * Schliesst die View und legt die Nummer der Auswahl fest
+	 * 
+	 * @param a Nummer der Auswahl
+	 */
+	public void close(int a) {
+		auswahl = a;
 		((Stage) buttonDare.getScene().getWindow()).close();
-		auswahl = 2;
 	}
 
 }

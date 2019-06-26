@@ -18,10 +18,21 @@ import viewController.PlayerConfigViewController;
 import viewController.PointsViewController;
 import viewController.SelectionViewController;
 
+/**
+ * Ist für den Ablauf des gesamten Spiels zuständig. Übernimmt das Aufrufen der
+ * Views und verwaltet deren Rückgabewerte.
+ * 
+ * @author Alexander Stammherr
+ * @version 1.1
+ *
+ */
 public class GameController {
 
 	private Stage stage = new Stage();
 
+	/**
+	 * Startet das Spiel
+	 */
 	public void play() {
 
 		boolean newGame;
@@ -143,6 +154,12 @@ public class GameController {
 		} while (newGame);
 	}
 
+	/**
+	 * Zeigt dem User eine Fehlermeldung an
+	 * 
+	 * @param title Der Titel der Fehlermeldung
+	 * @param message Die Fehlernachricht die angezeigt werden soll
+	 */
 	private void ShowError(String title, String message) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
@@ -153,12 +170,30 @@ public class GameController {
 		return;
 	}
 
+	/**
+	 * Zeigt dem User eine Fehlermeldung an
+	 * 
+	 * @param title Der Titel der Fehlermeldung
+	 * @param message Die Fehlernachricht die angezeigt werden soll
+	 * @param e Die Fehlermeldung die auf der Console ausgegeben werden soll
+	 */
 	private void ShowError(String title, String message, Exception e) {
 		e.printStackTrace();
 		ShowError(title, message);
 		return;
 	}
 
+	/**
+	 *  Generiert einen FXMLLoader mit dem angegeben Pfad.
+	 *  Setzt den Titel der Stage und weist dieser eine Scene zu.
+	 *  MAcht die Stage anzeigefähig.
+	 *  
+	 * @param path Pfad zur .fxml-Datei
+	 * @param title Titel der Stage
+	 * @return Generierter Loader
+	 * @throws IOException
+	 * @see FXMLLoader
+	 */
 	private FXMLLoader generateLoader(String path, String title) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
 		Parent root = loader.load();
