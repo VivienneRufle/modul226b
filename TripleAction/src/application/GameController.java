@@ -20,11 +20,7 @@ import viewController.SelectionViewController;
 
 public class GameController {
 
-	private Stage stage = new Stage();;
-
-	public GameController(Stage stage) {
-		// this.stage = stage;
-	}
+	private Stage stage = new Stage();
 
 	public void play() {
 
@@ -36,8 +32,9 @@ public class GameController {
 			ArrayList<Player> players;
 
 			try {
-				
-				PlayerAmountViewController controller = generateLoader("/view/PlayerAmountView.fxml", "TripleAction - Grundkofiguration").getController();
+
+				PlayerAmountViewController controller = generateLoader("/view/PlayerAmountView.fxml",
+						"TripleAction - Grundkofiguration").getController();
 				amount = controller.show();
 
 				if (amount[0] == 0) {
@@ -52,7 +49,8 @@ public class GameController {
 			}
 
 			try {
-				PlayerConfigViewController controller = generateLoader("/view/PlayerConfigView.fxml", "TripleAction - Player konfigurieren").getController();
+				PlayerConfigViewController controller = generateLoader("/view/PlayerConfigView.fxml",
+						"TripleAction - Player konfigurieren").getController();
 				players = controller.show(amount[0]);
 
 				if (players == null) {
@@ -71,7 +69,8 @@ public class GameController {
 					int selection;
 
 					try {
-						SelectionViewController controller = generateLoader("/view/SelectionView.fxml", "TripleAction - Auswahl Runde " + (i+1)).getController();
+						SelectionViewController controller = generateLoader("/view/SelectionView.fxml",
+								"TripleAction - Auswahl Runde " + (i + 1)).getController();
 						selection = controller.show(player.getName());
 
 						if (selection == -1) {
@@ -87,27 +86,23 @@ public class GameController {
 
 					try {
 
-						FXMLLoader loader = null;
+						String path = null;
 						GameCategoryController controller;
 
 						switch (selection) {
 						case 0:
-							loader = new FXMLLoader(getClass().getResource("/view/DareView.fxml"));
+							path = "/view/DareView.fxml";
 							break;
 						case 1:
-							loader = new FXMLLoader(getClass().getResource("/view/TruthView.fxml"));
+							path = "/view/TruthView.fxml";
 							break;
 						case 2:
-							loader = new FXMLLoader(getClass().getResource("/view/RiskView.fxml"));
+							path = "/view/RiskView.fxml";
 							break;
 						}
 
-						Parent root = loader.load();
+						controller = generateLoader(path, null).getController();
 
-						controller = loader.getController();
-
-						Scene scene = new Scene(root);
-						stage.setScene(scene);
 						points = controller.show(player.getName());
 
 						if (points == -1) {
@@ -123,19 +118,19 @@ public class GameController {
 				}
 			}
 			try {
-				
-				List<Player> data = players;
-				
-				Collections.sort(data, new Comparator<Player>() {
-					 @Override
-				        public int compare(Player p1, Player p2)
-				        {
 
-				            return  p2.getPoints() - p1.getPoints();
-				        }
+				List<Player> data = players;
+
+				Collections.sort(data, new Comparator<Player>() {
+					@Override
+					public int compare(Player p1, Player p2) {
+
+						return p2.getPoints() - p1.getPoints();
+					}
 				});
 
-				PointsViewController controller = generateLoader("/view/PointsView.fxml", "TripleAction - Punkteübersicht").getController();
+				PointsViewController controller = generateLoader("/view/PointsView.fxml",
+						"TripleAction - Punkteübersicht").getController();
 				newGame = controller.show(data);
 
 			} catch (Exception e) {
@@ -163,15 +158,16 @@ public class GameController {
 		ShowError(title, message);
 		return;
 	}
-	
+
 	private FXMLLoader generateLoader(String path, String title) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
 		Parent root = loader.load();
 
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle(title);
-		
+		if (title != null && title != "") {
+			stage.setTitle(title);
+		}
 		return loader;
 	}
 }

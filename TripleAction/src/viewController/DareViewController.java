@@ -17,7 +17,7 @@ public class DareViewController extends DareTruthController {
 	private Text textCaption;
 	
 	public void initialize() {
-		super.setVariables(true, buttonDAufgabe1, buttonDAufgabe2, buttonDAufgabe3, textCaption);
+		super.setVariables(false, buttonDAufgabe1, buttonDAufgabe2, buttonDAufgabe3, textCaption);
 	}
 	
 }

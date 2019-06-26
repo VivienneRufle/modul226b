@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		GameController gameController = new GameController(primaryStage);
+		GameController gameController = new GameController();
 		gameController.play();
 	}
 	
